@@ -1,0 +1,12 @@
+[
+    {
+        "nombre": "Jane Doe",
+        "edad": 35,
+        "activo": true
+    },
+    {
+        "nombre": "John Doe",
+        "edad": 39,
+        "activo": false
+    }
+]
