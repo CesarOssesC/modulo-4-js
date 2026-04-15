@@ -31,7 +31,7 @@ function mostrarHeroe(heroe) {
     seccionHeroe.innerHTML = `
         <div class="col-md-6">
             <div class="card">
-                <img src="${heroe.images.sm}" class="card-img-top" alt="${heroe.name}" style="height: 50vh; object-fit: contain">
+                <img src="${heroe.images.lg}" class="card-img-top" alt="${heroe.name}" style="height: 50vh; object-fit: contain">
                 <div class="card-body">
                     <h5 class="card-title">${heroe.name}</h5>
                     <ul class="list-group list-group-flush">
@@ -93,6 +93,28 @@ btnBuscar.addEventListener("click", () => {
         mostrarHeroe(heroe)
     } else {
         seccionHeroe.innerHTML = `<p class="text-center my-5 text-warning">No se encontró el heroe: ${nombre} en nuestra base de datos, por favor revisa el nombre e intenta nuevamente.</p>`
+    }
+})
+
+nombreSuperHeroe.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        
+    
+        const nombre = nombreSuperHeroe.value.trim()
+
+        if (!nombre) {
+            alert("Por favor escribe un nombre")
+            return
+        }
+
+        const heroe = buscarHeroePorNombre(nombre)
+
+        if (heroe) {
+            mostrarHeroe(heroe)
+        } else {
+            seccionHeroe.innerHTML = `<p class="text-center my-5 text-warning">No se encontró el heroe: ${nombre} en nuestra base de datos, por favor revisa el nombre e intenta nuevamente.</p>`
+        }
+
     }
 })
 
